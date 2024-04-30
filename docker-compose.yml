@@ -10,7 +10,7 @@ services:
       - 8080:80
     environment:
       WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: ranjit
+      WORDPRESS_DB_USER: ubuntu
       WORDPRESS_DB_PASSWORD_FILE: /run/secrets/db_password
       WORDPRESS_DB_NAME: wpdb
     secrets:
@@ -19,12 +19,12 @@ services:
       - wordpress:/var/www/html
 
   db:
-    image: mysql:5.7.28
+    image: mysql:latest
     ports:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: wpdb
-      MYSQL_USER: ranjit
+      MYSQL_USER: ubuntu
       MYSQL_PASSWORD_FILE: /run/secrets/db_password
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
     secrets:
@@ -40,9 +40,9 @@ services:
     links:
       - db:db
     ports:
-      - 8282:80
+      - 8081:80
     environment:
-      MYSQL_USER: ranjit
+      MYSQL_USER: ubuntu
       MYSQL_PASSWORD_FILE: /run/secrets/db_password
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
     secrets:
