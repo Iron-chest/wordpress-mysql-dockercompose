@@ -38,7 +38,13 @@ sudo vim /etc/hostname
 sudo reboot
 
 ```
-3. Make sure the server apt repo is up-to-date
+3. Restart the server
+```
+Press CTRL + R
+
+```
+
+4. Make sure the server apt repo is up-to-date
 ```
 sudo yum update -y
 
